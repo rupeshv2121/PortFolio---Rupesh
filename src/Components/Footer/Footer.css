@@ -1,0 +1,155 @@
+* {
+    color: #DBD4D4;
+}
+
+.footer-outer-container {
+    margin-top: 2rem;
+    background-color: rgba(102, 97, 97, 0.09);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    padding: 3rem 2rem 1rem 2rem;
+    gap: 2rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 2rem;
+    background-color: rgba(25, 25, 25);
+}
+
+.footer-links a {
+    text-decoration: none;
+    background-color: rgba(25, 25, 25);
+}
+
+.footer-links a .home,
+.footer-links a.active .home,
+.footer-links a .services,
+.footer-links a .about,
+.footer-links a .skills,
+.footer-links a .contact,
+.footer-links a .experience {
+    width: 0rem;
+    background-color: #FC7013;
+    height: 0.2rem;
+    display: block;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover .home,
+.footer-links a:hover .services,
+.footer-links a:hover .about,
+.footer-links a:hover .skills,
+.footer-links a:hover .contact,
+.footer-links a:hover .experience {
+    width: 100%;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 1rem;
+    background-color: rgba(25, 25, 25);
+}
+
+.footer-icons a {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 1rem;
+    background-color: rgba(25, 25, 25);
+}
+
+.discord-icon,
+.github-icon,
+.linkedIn-icon {
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(25, 25, 25);
+}
+
+.discord-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.personal-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(25, 25, 25);
+    gap: 25rem;
+}
+
+.email-link,
+.phone-number {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(25, 25, 25);
+    gap: 0.5rem;
+}
+
+.email-link div,
+.phone-number div {
+    background-color: rgba(25, 25, 25);
+}
+
+.email-link svg,
+.phone-number svg {
+    background-color: rgba(25, 25, 25);
+}
+
+.made-by {
+    text-align: center;
+    background-color: rgba(25, 25, 25);
+    padding-bottom: 1rem;
+    font-size: 1rem;
+}
+
+@media screen and (max-width:881px) {
+    .personal-info {
+        gap: 7rem;
+    }
+
+    .footer-outer-container {
+        margin-top: 2rem;
+        padding: 2rem 1rem 1rem 1rem;
+    }
+}
+
+
+@media screen and (max-width:426px) {
+    .personal-info {
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .footer-outer-container {
+        margin-top: 2rem;
+        padding: 2rem 1rem 1rem 1rem;
+    }
+
+    .footer-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .footer-links a {
+        font-size: 0.9rem;
+        gap: 1rem;
+    }
+}
+
+@media (max-width:326px) {
+    .footer-links {
+        gap: 0.8rem;
+    }
+}

@@ -1,0 +1,155 @@
+* {
+    color: white;
+    background-color: #121212;
+}
+
+.container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 1.5rem;
+}
+
+.nav-links {
+    font-size: 1.1rem;
+    display: flex;
+    gap: 4rem;
+    padding-right: 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+}
+
+.nav-links a .home,
+.nav-links a.active .home,
+.nav-links a .services,
+.nav-links a .about,
+.nav-links a .skills,
+.nav-links a .contact,
+.nav-links a .experience {
+    width: 0rem;
+    background-color: #FC7013;
+    height: 0.2rem;
+    display: block;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover .home,
+.nav-links a:hover .services,
+.nav-links a:hover .about,
+.nav-links a:hover .skills,
+.nav-links a:hover .contact,
+.nav-links a:hover .experience {
+    width: 100%;
+}
+
+
+.hemBurger {
+    display: none
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        font-size: 1rem;
+        gap: 2rem;
+        padding-right: 0.5rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+        margin-left: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 525px) {
+
+    .nav-links {
+        flex-direction: column;
+        gap: 3rem;
+        align-items: center;
+        width: 100%;
+        position: fixed;
+        top: 0px;
+        left: 0;
+        padding: 0;
+        height: 100vh;
+        display: none;
+
+    }
+
+    .active {
+        display: flex;
+        background-image: url("src/Components/Navbar/navbar-background.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        justify-content: center;
+        background-position: bottom;
+        z-index: 1000;
+    }
+
+    html.no-scroll,
+    body.no-scroll {
+        overflow: hidden;
+        height: 100vh;
+    }
+
+
+    .nav-links a {
+        position: relative;
+        ;
+        font-size: 1.2rem;
+        background: none;
+    }
+
+
+    .hemBurger {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        cursor: pointer;
+    }
+
+    .hemBurger .line-1,
+    .line-2,
+    .line-3 {
+        background-color: rgb(255, 255, 255);
+        height: 0.25rem;
+        width: 1.5rem;
+        border-radius: 0.2rem;
+    }
+
+    .hemBurger.active .line-1 {
+        transform: rotate(45deg) translate(0.3rem, 0.3rem);
+    }
+
+    .hemBurger.active .line-2 {
+        opacity: 0;
+    }
+
+    .hemBurger.active .line-3 {
+        transform: rotate(-45deg) translate(0.3rem, -0.3rem);
+    }
+
+    .hemBurger.active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 1rem;
+        right: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 0.5rem;
+    }
+}

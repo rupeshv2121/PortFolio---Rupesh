@@ -1,0 +1,92 @@
+:root {
+    --duration: 1.5s;
+    --container-size: 250px;
+    --box-size: 33px;
+    --box-border-radius: 15%;
+}
+
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.preLoader-container {
+    width: var(--container-size);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.box {
+    width: var(--box-size);
+    height: var(--box-size);
+    position: relative;
+    display: block;
+    transform-origin: -50% center;
+    border-radius: var(--box-border-radius);
+}
+
+.box::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: lightblue;
+    border-radius: var(--box-border-radius);
+    box-shadow: 0px 0px 10px 0px rgba(28, 159, 255, 0.4);
+}
+
+.box:nth-child(1) {
+    animation: slide var(--duration) ease-in-out infinite alternate;
+}
+
+.box:nth-child(1)::after {
+    animation: color-change var(--duration) ease-in-out infinite alternate;
+}
+
+.box:nth-child(2)::after {
+    background-color: #1C9FFF;
+}
+
+.box:nth-child(3)::after {
+    background-color: #1FB1FD;
+}
+
+.box:nth-child(4)::after {
+    background-color: #22C7FB;
+}
+
+.box:nth-child(5)::after {
+    background-color: #23D3FB;
+}
+
+@keyframes slide {
+    0% {
+        background-color: #1795FF;
+        transform: translateX(0vw);
+    }
+
+    100% {
+        background-color: #23D3FB;
+        transform: translateX(calc(var(--container-size) - (var(--box-size) * 1.25)));
+    }
+}
+
+@keyframes color-change {
+    0% {
+        background-color: #1795FF;
+    }
+
+    100% {
+        background-color: #23D3FB;
+    }
+}

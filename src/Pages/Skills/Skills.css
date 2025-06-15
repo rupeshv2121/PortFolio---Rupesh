@@ -1,0 +1,91 @@
+.skills-outer-container {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.skill-heading {
+    font-size: 2rem;
+}
+
+.skills-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.frontend-skills,
+.backend-skills,
+.programming-skills,
+.tools {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.frontend-skills div,
+.backend-skills div,
+.programming-skills div,
+.tools div {
+    font-size: 1.2rem;
+}
+
+.frontend-skills .frontend-skills-icons,
+.backend-skills .backend-skills-icons,
+.programming-skills .programming-skills-icons,
+.tools-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    gap: 1rem;
+}
+
+.frontend-skills .frontend-skills-icons img,
+.backend-skills .backend-skills-icons img,
+.programming-skills .programming-skills-icons img,
+.tools .tools-icons img {
+    height: 3rem;
+    width: 4rem;
+}
+
+@media screen and (max-width:768px) {
+    .frontend-skills {
+        gap: 1rem;
+    }
+
+    .frontend-skills-icons {
+        flex-wrap: wrap;
+        height: 10rem;
+        gap: 1rem;
+    }
+
+    .backend-skills,
+    .programming-skills,
+    .tools {
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width:426px) {
+    .frontend-skills-icons {
+        height: 12rem;
+    }
+
+    .frontend-skills .frontend-skills-icons img,
+    .tools .tools-icons img,
+    .backend-skills .backend-skills-icons img,
+    .programming-skills .programming-skills-icons img {
+        height: 2.5rem;
+    }
+
+
+}
