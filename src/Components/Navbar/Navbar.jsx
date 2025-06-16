@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import { useEffect, useRef, useState } from 'react';
+import Logo from '../../../assest/1.jpg';
 import './Navbar.css';
 
 function Navbar() {
@@ -16,6 +17,11 @@ function Navbar() {
         const section = document.getElementById(id);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Automatically close the navbar on mobile after click
+        if (isNavbarActive && window.innerWidth <= 768) {
+            setIsNavbarActive(false);
         }
     };
 
@@ -61,7 +67,7 @@ function Navbar() {
 
     return (
         <div className="container">
-            <div className="logo" ref={logoRef}>Logo</div>
+            <div className="logo" ref={logoRef}><img src={Logo} alt="" /></div>
             <div
                 className={`nav-links${isNavbarActive ? ' active' : ''}`}
                 ref={navLinksRef}

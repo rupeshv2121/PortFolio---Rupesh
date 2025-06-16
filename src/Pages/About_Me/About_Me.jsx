@@ -95,7 +95,7 @@ function About_Me() {
                                 scrollTrigger: {
                                     trigger: el,
                                     start: 'top 70%',
-                                    end: 'bottom 40%',
+                                    end: 'bottom 20%',
                                     toggleActions: 'play reverse play reverse',
                                 }
                             }

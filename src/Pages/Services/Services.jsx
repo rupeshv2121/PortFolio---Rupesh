@@ -15,23 +15,45 @@ function Services() {
         const ctx = gsap.context(() => {
             const items = gsap.utils.toArray('.services > div');
 
+            const isMobile = window.innerWidth <= 525;
+
+            // ScrollTrigger configs for desktop
+            const desktopConfigs = [
+                { start: 'top 80%', end: 'bottom 25%' }, // Frontend
+                { start: 'top 75%', end: 'bottom 28%' }, // Backend
+                { start: 'top 70%', end: 'bottom 32%' }, // UI/UX
+            ];
+
+            // ScrollTrigger configs for mobile
+            const mobileConfigs = [
+                { start: 'top 90%', end: 'bottom 10%' },
+                { start: 'top 90%', end: 'bottom 15%' },
+                { start: 'top 85%', end: 'bottom 20%' },
+            ];
+
+            const activeConfigs = isMobile ? mobileConfigs : desktopConfigs;
+
             items.forEach((item, i) => {
-                gsap.fromTo(item,
+                const { start, end } = activeConfigs[i] || {
+                    start: 'top 70%',
+                    end: 'top 20%',
+                };
+
+                gsap.fromTo(
+                    item,
                     { y: 50, opacity: 0 },
                     {
                         y: 0,
                         opacity: 1,
                         duration: 1,
                         ease: 'power3.out',
-                        stagger: 0.2,
-                        delay: i * 0.2,
                         scrollTrigger: {
                             trigger: item,
-                            start: 'top 70%',
-                            end: 'top 20%',
+                            start,
+                            end,
                             toggleActions: 'play reverse play reverse',
-                            // markers: true,
-                        }
+                            // markers: true, // Remove in production
+                        },
                     }
                 );
             });
