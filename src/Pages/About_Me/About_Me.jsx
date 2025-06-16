@@ -34,6 +34,7 @@ function About_Me() {
                                 start: 'top 50%',
                                 end: 'bottom 20%',
                                 toggleActions: 'play reverse play reverse',
+                                markers: true
                             }
                         }
                     );
