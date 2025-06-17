@@ -75,10 +75,11 @@ function About_Me() {
                             duration: 1.2,
                             ease: 'power2.out',
                             scrollTrigger: {
-                                trigger: '.about-right-container',
+                                trigger: '.about-inner-container',
                                 start: 'top 80%',
-                                end: 'bottom 30%',
+                                // end: 'top 0%',
                                 toggleActions: 'play reverse play reverse',
+                                // markers: true
                             }
                         }
                     );
