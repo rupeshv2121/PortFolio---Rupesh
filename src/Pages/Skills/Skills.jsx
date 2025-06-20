@@ -59,7 +59,7 @@ function Skills() {
                                 start: 'top 50%',
                                 end: 'bottom 10%',
                                 toggleActions: 'play reverse play reverse',
-                                markers: true,
+                                // markers: true,
                             }
                         }
                     );
@@ -89,7 +89,7 @@ function Skills() {
                                     start: 'top 80%',
                                     end: 'bottom 10%',
                                     toggleActions: 'play reverse play reverse',
-                                    markers: true
+                                    // markers: true
                                 }
                             }
                         );
