@@ -21,91 +21,45 @@ function About_Me() {
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            ScrollTrigger.matchMedia({
-                "(min-width: 769px)": () => {
-                    gsap.fromTo('.about-left-container',
-                        { x: -100, opacity: 0 },
-                        {
-                            x: 0, opacity: 1, delay: 0.5,
-                            duration: 1.5,
-                            ease: 'power3.out',
-                            scrollTrigger: {
-                                trigger: '.about-left-container',
-                                start: 'top 50%',
-                                end: 'bottom 20%',
-                                toggleActions: 'play reverse play reverse',
-                                // markers: true
-                            }
-                        }
-                    );
-                    gsap.fromTo('.about-right-container',
-                        { y: 100, opacity: 0 },
-                        {
-                            y: 0, opacity: 1,
-                            duration: 1.5,
-                            ease: 'power3.out',
-                            scrollTrigger: {
-                                trigger: '.about-right-container',
-                                start: 'top 40%',
-                                end: 'bottom 20%',
-                                toggleActions: 'play reverse play reverse',
-                            }
-                        }
-                    );
-                },
-                "(max-width: 768px)": () => {
-                    gsap.fromTo('.about-left-container',
-                        { y: 100, opacity: 0 },
-                        {
-                            y: 0, opacity: 1,
-                            duration: 1.2,
-                            ease: 'power2.out',
-                            scrollTrigger: {
-                                trigger: '.about-left-container',
-                                start: 'top 80%',
-                                end: 'bottom 30%',
-                                toggleActions: 'play reverse play reverse',
-                            }
-                        }
-                    );
-                    gsap.fromTo('.about-right-container',
-                        { y: 100, opacity: 0 },
-                        {
-                            y: 0, opacity: 1,
-                            duration: 1.2,
-                            ease: 'power2.out',
-                            scrollTrigger: {
-                                trigger: '.about-inner-container',
-                                start: 'top 80%',
-                                // end: 'top 0%',
-                                toggleActions: 'play reverse play reverse',
-                                // markers: true
-                            }
-                        }
-                    );
-                },
-                "all": () => {
-                    gsap.utils.toArray('.about-skills').forEach((el) => {
-                        gsap.fromTo(el,
-                            { y: 50, opacity: 0 },
-                            {
-                                y: 0,
-                                opacity: 1,
-                                duration: 1.5,
-                                ease: 'power2.out',
-                                stagger: 0.25,
-                                scrollTrigger: {
-                                    trigger: el,
-                                    start: 'top 70%',
-                                    end: 'bottom 20%',
-                                    toggleActions: 'play reverse play reverse',
-                                }
-                            }
-                        );
-                    });
+            // Animate the whole about-inner-container together
+            gsap.fromTo('.about-inner-container',
+                { y: 100, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 2,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: '.about-inner-container',
+                        start: 'top 70%',
+                        end: 'bottom 10%',
+                        toggleActions: 'play none none reverse',
+                        // once: true
+                    }
                 }
-            });
+            );
+
+            // Animate skills container items with stagger
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.about-skills-container',
+                    start: 'top 70%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse',
+                    // once: true
+                }
+            }).fromTo('.about-skills',
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.5,
+                    ease: 'power2.out',
+                    stagger: 0.3
+                }
+            );
         }, aboutRef);
+
         return () => ctx.revert();
     }, []);
 

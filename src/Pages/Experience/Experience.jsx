@@ -10,108 +10,31 @@ export default function Experience() {
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            // ScrollTrigger.matchMedia({
-            // "(min-width: 769px)": function () {
-            // Hacktober Fest Card
-            gsap.fromTo('.experience-card-1',
-                { y: -100, opacity: 0 },
+            const allCards = gsap.utils.toArray('.experience-card');
+
+            gsap.fromTo(
+                allCards,
+                { y: 100, opacity: 0 },
                 {
-                    y: 0, opacity: 1,
-                    delay: 0.5,
-                    duration: 1.5,
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.2,
                     ease: 'power3.out',
                     stagger: 0.3,
                     scrollTrigger: {
                         trigger: '.experience-inner-container',
-                        start: 'top 30%',
-                        end: 'bottom 90%',
-                        toggleActions: 'play reverse play reverse',
-                        // markers: true
-                    }
-                }
-            );
-
-            // Reto India Card
-            gsap.fromTo('.experience-card-2',
-                { y: -100, opacity: 0 },
-                {
-                    y: 0, opacity: 1,
-                    delay: 0.5,
-                    duration: 1.5,
-                    ease: 'power3.out',
-                    stagger: 0.3,
-                    scrollTrigger: {
-                        trigger: '.experience-card-2',
-                        start: 'top 70%',
+                        start: 'top 65%',
                         end: 'bottom 10%',
                         toggleActions: 'play reverse play reverse',
-                        // markers: true
-                    }
+                        // markers: true,
+                    },
                 }
             );
+        }, experienceRef);
 
-            // GSsoc Card
-            gsap.fromTo('.experience-card-3',
-                { y: 80, opacity: 0 },
-                {
-                    y: 0, opacity: 1,
-                    delay: 0.5,
-                    duration: 1.5,
-                    ease: 'power3.out',
-                    stagger: 0.3,
-                    scrollTrigger: {
-                        trigger: '.experience-card-3',
-                        start: 'top 50%',
-                        end: 'bottom 10%',
-                        toggleActions: 'play reverse play reverse',
-                        // markers: true
-                    }
-                }
-            );
-
-            // SWOC Card
-            gsap.fromTo('.experience-card-4',
-                { y: 80, opacity: 0 },
-                {
-                    y: 0, opacity: 1,
-                    delay: 0.5,
-                    duration: 1.5,
-                    ease: 'power3.out',
-                    stagger: 0.3,
-                    scrollTrigger: {
-                        trigger: '.experience-card-4',
-                        start: 'top 70%',
-                        end: 'bottom 30%',
-                        toggleActions: 'play reverse play reverse',
-                        // markers: true
-                    }
-                }
-            );
-
-            // IEEE Card
-            gsap.fromTo('.experience-card-5',
-                { y: 80, opacity: 0 },
-                {
-                    y: 0, opacity: 1,
-                    delay: 0.5,
-                    duration: 1.5,
-                    ease: 'power3.out',
-                    stagger: 0.3,
-                    scrollTrigger: {
-                        trigger: '.experience-card-5',
-                        start: 'top 90%',
-                        end: 'bottom 40%',
-                        toggleActions: 'play reverse play reverse',
-                        // markers: true
-                    }
-                }
-            );
-        }
-            // });
-
-            , experienceRef)
         return () => ctx.revert();
-    }, [])
+    }, []);
+
     return (
         <>
             <div className="experience-outer-container" ref={experienceRef}>
