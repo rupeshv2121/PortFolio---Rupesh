@@ -33,35 +33,38 @@ function Skills() {
             ScrollTrigger.matchMedia({
                 // ✅ Desktop and tablet view
                 "(min-width: 769px)": () => {
-                    const categories = [
-                        '.frontend-skills-icons img',
-                        '.backend-skills-icons img',
-                        '.programming-skills-icons img',
-                        '.tools-icons img'
+                    const sections = [
+                        '.frontend-skills',
+                        '.backend-skills',
+                        '.programming-skills',
+                        '.tools'
                     ];
 
-                    categories.forEach((selector) => {
-                        gsap.fromTo(selector,
-                            { opacity: 0, scale: 0.5, y: 30 },
-                            {
-                                opacity: 1,
-                                scale: 1,
-                                y: 0,
-                                duration: 0.6,
-                                stagger: 0.1,
-                                ease: 'power2.out',
-                                scrollTrigger: {
-                                    trigger: selector,
-                                    start: 'top 85%',
-                                    end: 'bottom 10%',
-                                    toggleActions: 'play reverse play reverse',
-                                    // markers: true
-                                }
+                    gsap.fromTo(
+                        sections,
+                        {
+                            opacity: 0,
+                            y: 60,
+                            scale: 0.95
+                        },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            scale: 1,
+                            duration: 0.8,
+                            ease: 'power2.out',
+                            stagger: 0.3,
+                            scrollTrigger: {
+                                trigger: '.skills-container',
+                                start: 'top 50%',
+                                end: 'bottom 10%',
+                                toggleActions: 'play reverse play reverse',
+                                markers: true,
                             }
-                        );
-                    });
-                },
-
+                        }
+                    );
+                }
+                ,
                 // ✅ Mobile view
                 "(max-width: 768px)": () => {
                     const categories = [
@@ -86,7 +89,7 @@ function Skills() {
                                     start: 'top 80%',
                                     end: 'bottom 10%',
                                     toggleActions: 'play reverse play reverse',
-                                    // markers: true
+                                    markers: true
                                 }
                             }
                         );
