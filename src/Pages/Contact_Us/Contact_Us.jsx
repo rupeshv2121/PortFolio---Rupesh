@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { toast, ToastContainer, Zoom } from 'react-toastify';
-import { app } from '../../Firebase.jsx';
+import { app } from '../../firebase.js';
 import contactLogo from './contact.svg';
 import './Contact_us.css';
 
